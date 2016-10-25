@@ -1,0 +1,141 @@
+\newcommand*{\oneindent}{\hspace*{3mm}}
+\newcommand*{\twoindent}{\oneindent{}\oneindent{}}
+\newcommand*{\threeindent}{\twoindent{}\oneindent{}}
+
+\newlength{\indentlength}
+\setlength{\indentlength}{3mm}
+
+\AtBeginDocument{\hypersetup{colorlinks,urlcolor=black}}
+
+\usepackage{enumitem, setspace, multicol, multirow, amsmath, amssymb}
+\usepackage{natbib}
+
+\usepackage{multibib}
+\newcites{additional}{Additional Papers}
+\newcites{selected}{Selected Papers}
+
+
+%\setlength{\tabcolsep}{1pt}
+\linespread{0.9}
+
+\def\aj{AJ}%
+          % Astronomical Journal
+\def\apj{ApJ}%
+          % Astrophysical Journal
+\def\apjl{ApJ}%
+          % Astrophysical Journal, Letters
+\def\apjs{ApJS}%
+          % Astrophysical Journal, Supplement
+\def\apss{Ap\&SS}%
+          % Astrophysics and Space Science
+\def\aap{A\&A}%
+          % Astronomy and Astrophysics
+\def\aapr{A\&A~Rev.}%
+          % Astronomy and Astrophysics Reviews
+\def\aaps{A\&AS}%
+          % Astronomy and Astrophysics, Supplement
+\def\jcap{J. Cosmology Astropart. Phys.}%
+          % Journal of Cosmology and Astroparticle Physics
+\def\jrasc{JRASC}%
+          % Journal of the RAS of Canada
+\def\mnras{MNRAS}%
+          % Monthly Notices of the RAS
+\def\memras{MmRAS}%
+          % Memoirs of the RAS
+\def\pra{Phys.~Rev.~A}%
+          % Physical Review A: General Physics
+\def\prb{Phys.~Rev.~B}%
+          % Physical Review B: Solid State
+\def\prc{Phys.~Rev.~C}%
+          % Physical Review C
+\def\prd{Phys.~Rev.~D}%
+          % Physical Review D
+\def\pre{Phys.~Rev.~E}%
+          % Physical Review E
+\def\prl{Phys.~Rev.~Lett.}%
+          % Physical Review Letters
+\def\pasp{PASP}%
+          % Publications of the ASP
+\def\pasj{PASJ}%
+          % Publications of the ASJ
+\def\nat{Nature}%
+          % Nature
+\def\aplett{Astrophys.~Lett.}%
+          % Astrophysics Letters
+\def\physrep{Phys.~Rep.}%
+          % Physics Reports
+\def\procspie{Proc.~SPIE}%
+          % Proceedings of the SPIE
+\let\astap=\aap
+\let\apjlett=\apjl
+\let\apjsupp=\apjs
+\let\applopt=\ao
+
+
+
+
+%\newcommand*{\contactinfo}{
+%\begin{tabular*}{1.0\maketitlewidth}{@{\extracolsep{\fill} } l l l}
+%\textbf{Work Address:} & \textbf{Permanent Address:} & \\
+%191 W. Woodruff Ave. & 1809 Kenny Rd. Apt. D & \linkedinsocialsymbol \href{https://www.linkedin.com/pub/eric-suchyta/82/90b/557}{eric.suchyta} \\
+%Columbus, OH 43210 & Columbus, OH 43212 & \githubsocialsymbol \href{https://github.com/suchyta1}{suchyta1} \\ \\[-0.5em]
+%\fixedphonesymbol +1 (614) 247-8296 & \mobilephonesymbol +1 (937) 329-1647 &\\
+%\emailsymbol \href{mailto:suchyta.1@osu.edu}{suchyta.1@osu.edu} & \emailsymbol \href{mailto:eric.d.suchyta@gmail.com}{eric.d.suchyta@gmail.com} & \\
+%\homepagesymbol \href{http://www.physics.ohio-state.edu/~suchyta.1/}{http://www.physics.ohio-state.edu/\textasciitilde suchyta.1/} &  &
+%\end{tabular*}
+%}
+
+\newcommand*{\contactinfo}{%
+%\namestyle{Eric~Suchyta}\titlestyle{~|~R\'esum\'e}\\
+\noindent\makebox[\textwidth][c]{%
+\begin{minipage}{0.49\textwidth}
+\textbf{Work Address}:\\
+191 W. Woodruff Ave.\\
+Columbus, OH 43210
+\end{minipage}
+%
+\begin{minipage}{0.39\linewidth}
+\textbf{Permanent Adress}\\
+1809 Kenny Rd. Apt. D\\
+Columbus, OH 43212
+\end{minipage}%
+}
+}
+
+
+\newenvironment{achievements}
+{\begin{itemize}[itemsep=3pt,parsep=0pt,topsep=3pt,partopsep=0pt]}
+{\end{itemize}}
+
+\newcommand{\mypublications}{%
+\vspace{0.5em}
+\textbf{Journal Articles}
+\begin{achievements}
+\item Papadopoulos, A., et al. (including Suchyta, E.), \textit{DES13S2cmm: The First Superluminous Supernova from the Dark Energy Survey}, arXiv:1501.07232.
+\item Chang, C., et al. (including Suchyta, E.), \textit{Modelling the Transfer Function for the Dark Energy Survey}, arXiv:1411.0032.
+\item Melchior, P., Suchyta, E., et al., \textit{Mass and galaxy distributions of four massive galaxy clusters from Dark Energy Survey Science Verification data}, arXiv:1405.4285.
+\end{achievements}
+
+\vspace{1em}
+\textbf{Conference Proceedings}
+\begin{achievements}
+\item Diehl, T., et al. (including Suchyta, E.), \textit{The Dark Energy Survey and operations: Year 1}, In Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series, 9149, August 2014
+\item Honscheid, K., et al. (including Suchyta, E.), \textit{The DECam DAQ System: lessons learned after one year of operations}, In Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series, 9152, July 2014.
+\item Honscheid, K., et al. (including Suchyta, E.), \textit{The readout and control system of the Dark Energy Camera}, In Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series, 8451, September 2012. 
+\end{achievements}
+
+\vspace{1em}
+\textbf{Other}
+\begin{achievements}
+\item Abbott, T., et al. (including Suchyta, E.), \textit{First SN Discoveries from the Dark Energy Survey}, The Astronomer's Telegram, 4668, December 2012.
+\item Senior Honors Thesis: Signal Stability Studies with the Askaryan Under-Ice Radio Array, The Ohio State University Knowledge Bank, 2010.
+\end{achievements}
+}
+
+\newcommand{\BIBand}{}
+\newcommand{\rsquo}{'}
+\newcommand{\ldquo}{``}
+\newcommand{\rdquo}{''}
+%\renewcommand{\ge}{$\ge$}
+
+\newcommand{\eprint}[1]{(ArXiv: #1)}

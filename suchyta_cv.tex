@@ -1,0 +1,220 @@
+\documentclass[12pt,a4paper,sans]{moderncv}	% possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\moderncvstyle{suchyta}                         % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking' 
+\moderncvcolor{black}                           % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black' 
+
+%\renewcommand{\familydefault}{\sfdefault}      % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+\usepackage[top=0.75in, bottom=0.75in, left=0.75in, right=0.75in]{geometry}
+\usepackage{tabularx,textcmds,amsmath,amsfonts}
+
+
+% personal data
+\name{Eric}{Suchyta}
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+
+
+% Commands for myself
+%\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{1ex}
+
+\newcommand{\suchytatitle}{%
+\begin{center}
+\namestyle{Eric~Suchyta}\titlestyle{~|~Curriculum Vitae} \\
+\end{center}
+%
+\begin{minipage}[!t]{0.4\textwidth}
+University of Pennsylvania\\
+Department of Physics \& Astronomy \\
+209 South 33rd Street \\
+Philadelphia, PA 19104-6396 \\
+\end{minipage}
+%
+\begin{minipage}[!t]{0.58\textwidth}
+email: \href{mailto:eric.d.suchyta@gmail.com}{eric.d.suchyta@gmail.com}\\
+website: {\url{http://www.sas.upenn.edu/~esuchyta}} \\
+Phone: (937) 329-1647 \\
+Office: DRL 4N19 \\
+\end{minipage}
+}
+
+
+%\newenvironment{achievements}
+%{\begin{itemize}[itemsep=3pt,parsep=0pt,topsep=3pt,partopsep=0pt]}
+%{\end{itemize}}
+
+
+
+\begin{document}
+\suchytatitle{}
+
+\section{Research Interests}
+Optical imaging surveys;
+maximizing the yield of rich datasets;
+``big data'';
+software and algorithm development;
+hybrid simulations;
+weak lensing;
+large-scale structure;
+novel measurement techniques
+
+
+\newcommand{\tsp}{\\[0.5em]}
+\section{Positions Held}
+\begin{tabularx}{\linewidth}{l X}
+2015 - : & Postdoctoral Researcher \\ & Department of Physics \& Astronomy, University of Pennsylvania \tsp
+2010 - 2015: & Graduate Research Assistant, (Advisor: Klaus Honscheid) \\& Department of Physics, The Ohio State University \tsp
+2013 - 2014: & Dark Energy Survey Early Career Scientist Committee Chair \tsp
+2010 - 2013: & Graduate Teaching Assistant \\& Department of Physics, The Ohio State University \tsp
+2009 - 2010: & Undergraduate Research Associate, (Advisor: Jim Beatty) \\& Department of Physics, The Ohio State University \tsp
+2007 - 2010: & Undergraduate Research Associate, (Advisor: R. Sooryakumar) \\& Department of Physics, The Ohio State University \tsp
+\end{tabularx}
+
+\section{Education}
+\begin{tabularx}{\linewidth}{l X}
+2015: & Ph.D., Physics, The Ohio State University \\
+2012: & M.S., Physics, The Ohio State University \\
+2010: & B.S., Physics, The Ohio State University, With Research and Honors Distinction, Summa Cum Laude, French Literature Minor
+\end{tabularx}
+
+\section{Honors and Awards}
+\begin{tabularx}{\linewidth}{l X}
+2014: & The Ohio State University Presidential Fellowship Award \\
+2014: & Dark Energy Survey Builder Status \\
+2010: & Smith Senior Award, Department of Physics, The Ohio State University \\
+2009: & Smith Junior Award, Department of Physics, The Ohio State University  \\
+2009: & The President's Salute to Undergraduate Academic Achievement at The Ohio State University \\
+2007: & Helen Cowan Book Award, Department of Physics, The Ohio State University  \\
+2006: & The Ohio State University Medalist Scholarship
+\end{tabularx}
+
+\section{Miscellaneous}
+\begin{achievements}
+\item Work highlighted for a general reading audience in \textit{Fermilab Today}
+\item Observing experience, Blanco Telescope, DECam, 6 nights
+\item Member of the American Physical Society
+\item Contributions to numerous science outreach projects including volunteer teaching/mentoring, blog writing/editing, competition/poster judging
+\end{achievements}
+
+%\section{Outreach}
+%\begin{achievements}
+%\item Scientific Thinkers volunteer teacher, Center for Emergent Materials, The Ohio State University.
+%\item Girls Reaching to Achieve in Sports and Physics volunteer assistant, Society of Women in Physics, The Ohio State University.
+%\item A day in the life... blog writer, Department of Physics, The Ohio Statue University.
+%\end{achievements}
+
+\clearpage
+%\section{Publications}
+
+%\mypublications
+
+
+\nociteselected{*}
+\bibliographystyleselected{suchyta-bib}
+\bibliographyselected{suchyta-papers-selected-modified}
+
+
+\section{Presentations}
+
+\begin{achievements}
+\item Digging Deeper (and More Greedily) in Imaging Surveys. \textit{Computer Science and Mathematics Division Seminars}, Oak Ridge National Laboratory. 10 Mar. 2016.
+\item Digging Deeper (and More Greedily) in Imaging Surveys. \textit{IFAE Pizza Seminars}, Institut de F\'isica d'Altes Energies, Universitat Aut\`onoma de Barcelona. 14 Oct. 2015.
+\item A General Prescription for Digging Too Deeply in Imaging Surveys. \textit{American Physical Society April Meeting}, Baltimore, MD. 14 Apr. 2015.
+\item Clustering, Proximity, and Balrog. \textit{CCAPP Summer Seminar Series}, Center for Cosmology and Astroparticle Physics, The Ohio State University. 01 Jul. 2014.
+\item Can we do lensing with DECam? \textit{American Physical Society Division of Particles and Fields Meeting}, Santa Cruz, CA. 08 Aug. 2013. 
+\item How Galaxy Physics Can Help Us Understand Weak Lensing. \textit{American Physical Society Division of Particles and Fields Meeting}, Santa Cruz, CA. 08 Aug. 2013. 
+\end{achievements}
+
+
+\section{Other Documents}
+\begin{achievements}
+\item Ph.D. Dissertation: Suchyta, Eric. Embrace the Dark Side: Advancing the Dark Energy Survey. Electronic Thesis or Dissertation. Ohio State University, 2015. \url{https://etd-ohiolink-edu.proxy.lib.ohio-state.edu/ap/10?0::NO:10:P10_ACCESSION_NUM:osu1440098241}.
+\item Accepted Proposal: Precise mass profiles of CLASH galaxy clusters through spectroscopy of HST-selected lensed objects, LBT 2014A.
+\item Senior Honors Thesis: Suchyta, Eric. Signal Stability Studies with the Askaryan Under-Ice Radio Array. The Ohio State University Knowledge Bank, 2010. \url{http://hdl.handle.net/1811/45674}.
+\end{achievements}
+
+
+\nociteadditional{*}
+\bibliographystyleadditional{suchyta-bib}
+\bibliographyadditional{suchyta-papers-additional-modified}
+
+
+
+\section{References}
+\begin{minipage}{0.48\textwidth}
+\textbf{Klaus Honscheid} \\
+Department of Physics \\
+The Ohio State University \\
+191 West Woodruff Avenue \\
+Columbus OH, 43210 USA \\
++1 (614) 292-3287 \\
+kh@mps.ohio-state.edu \\
+\\
+\textbf{Gary Bernstein} \\
+Department of Physics \& Astronomy \\
+University of Pennsylvania \\
+209 South 33rd Street \\
+Philadelphia, PA 19104 USA \\ 
++1 (215) 573-6252 \\
+garyb@physics.upenn.edu
+\end{minipage}%
+%
+\begin{minipage}{0.48\textwidth}
+\textbf{Eric Huff} \\
+Department of Physics \\
+The Ohio State University \\
+191 West Woodruff Avenue \\
+Columbus OH, 43210 USA \\
++1 (614) 292-7369 \\
+huff.791@osu.edu \\
+\\
+\textbf{Jelena Aleksi\'c} \\
+Institut de F\'isica d'Altes Energies \\
+Universitat Aut\`onoma de Barcelona \\
+E-08193 Bellaterra, Barcelona, Spain \\
++34 93 176 3966 \\
+jelena@ifae.es \\
+\end{minipage}
+
+
+%\textbf{Brian Yanny} \\
+%Computing Sector \\
+%Fermi National Accelerator Laboratory \\
+%P.O. Box 500 \\
+%Batavia, IL 60510 USA \\
+%+1 (630) 840-4413 \\
+%yanny@fnal.gov \\
+%\end{minipage}
+
+%\textbf{Josh Frieman} \\
+%Department of Astronomy and Astrophysics \\
+%The University of Chicago \\
+%5640 S. Ellis Ave. \\
+%Chicago, IL 60637 USA \\ 
+%+1 (773) 702-7971 \\
+%frieman@fnal.gov \\
+%\end{minipage}%
+
+%\begin{minipage}{0.48\textwidth}
+%\textbf{Sarah Bridle} \\
+%The University of Manchester \\
+%School of Physics and Astronomy \\
+%Oxford Road \\
+%Manchester, M13 9PL, UK \\
+%+44 (0) 161 275 4042 \\
+%sarah.bridle@manchester.ac.uk \\
+%\\
+
+
+%\nocite{*}
+%\bibliographystyle{mn2e_adsurl}
+
+%\bibliography{suchyta-publications}                        % 'publications' is the name of a BibTeX file
+
+\end{document}
+
