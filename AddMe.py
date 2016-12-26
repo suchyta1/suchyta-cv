@@ -4,7 +4,6 @@ import bibtexparser
 import numpy as np
 import numpy.core.defchararray as npchar
 import copy
-import json
 import re
 
 if __name__=='__main__':
@@ -12,7 +11,7 @@ if __name__=='__main__':
     ME = 'E. Suchyta'
     num = 3
 
-    infile = 'suchyta-papers.bib'
+    infile = 'suchyta-papers-2.bib'
     selectedfile = 'suchyta-papers-selected-modified.bib'
     additionalfile = 'suchyta-papers-additional-modified.bib'
 
@@ -36,11 +35,12 @@ if __name__=='__main__':
             if me not in authors:
                 last = '%s (including %s)'%(last,ME)
                 select = False
-            if bib.entries[j][u'ID'] in ['2012SPIE.8451E..12H', '2015AJ....150..150F']:
+            if bib.entries[j][u'ID'] in ['2012SPIE.8451E..12H', '2015AJ....150..150F', '2016JPhCS.759a2095K', 'choi2016stream']:
                 select = True
             authors = np.append(authors, last)
 
         bib.entries[j]['author'] = ' and '.join(authors)
+        bib.entries[j]['author'] = bib.entries[j]['author'].replace("{Fermi-LAT}, T.", "{Fermi-LAT}")
         bib.entries[j]['title'] = bib.entries[j]['title'].replace('\ge', '$\ge$')
 
         if (u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find('arxiv')!=-1):
@@ -56,6 +56,8 @@ if __name__=='__main__':
         if (u'booktitle' in bib.entries[j].keys()) and (bib.entries[j][u'booktitle'].lower().find('aps meeting')!=-1):
             omit = True
         if (u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find("the astronomer's telegram")!=-1):
+            omit = True
+        if (u'title' in bib.entries[j].keys()) and (bib.entries[j][u'title'].startswith("Embrace the Dark Side")):
             omit = True
 
         if omit:
