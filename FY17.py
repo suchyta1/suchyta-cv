@@ -34,7 +34,10 @@ if __name__=='__main__':
             authors = np.append(authors, last)
 
         bib.entries[j]['author'] = ' and '.join(authors)
+        bib.entries[j]['author'] = bib.entries[j]['author'].replace("{Fermi-LAT}, T.", "{Fermi-LAT}")
         bib.entries[j]['title'] = bib.entries[j]['title'].replace('\ge', '$\ge$')
+        bib.entries[j]['title'] = bib.entries[j]['title'].replace('{\minus}', '$-$')
+        bib.entries[j]['title'] = bib.entries[j]['title'].replace('z = 2.7', 'z~=~2.7')
 
         if (u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find('arxiv')!=-1):
             bib.entries[j][u'journal'] = 'arXiv'
