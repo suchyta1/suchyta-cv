@@ -5,22 +5,78 @@ import numpy as np
 import numpy.core.defchararray as npchar
 import copy
 import re
+from operator import itemgetter
+
+
+def AddMonthNum(bib):
+    for i in range(len(bib.entries)):
+
+        try:
+            month = bib.entries[i]['month']
+        except:
+            month = 0
+
+        if month == 'jan':
+            bib.entries[i]['monthnum'] = 1
+        elif month == 'feb':
+            bib.entries[i]['monthnum'] = 2
+        elif month == 'mar':
+            bib.entries[i]['monthnum'] = 3
+        elif month == 'apr':
+            bib.entries[i]['monthnum'] = 4
+        elif month == 'may':
+            bib.entries[i]['monthnum'] = 5
+        elif month == 'jun':
+            bib.entries[i]['monthnum'] = 6
+        elif month == 'jul':
+            bib.entries[i]['monthnum'] = 7
+        elif month == 'aug':
+            bib.entries[i]['monthnum'] = 8
+        elif month == 'sep':
+            bib.entries[i]['monthnum'] = 9
+        elif month == 'oct':
+            bib.entries[i]['monthnum'] = 10
+        elif month == 'nov':
+            bib.entries[i]['monthnum'] = 11
+        elif month == 'dec':
+            bib.entries[i]['monthnum'] = 12
+        else:
+            bib.entries[i]['monthnum'] = 0
+
+    return bib
+
 
 if __name__=='__main__':
     me = '{Suchyta}, E.'
     ME = 'E. Suchyta'
     num = 3
 
-    infile = 'suchyta-papers-2.bib'
+    #infile = 'suchyta-papers-2.bib'
+    #infile = 'ads-as-of-2017-06-28.bib'
+    #infile = 'ads-as-of-2017-09-17.bib'
+    #infile = 'ads-as-of-2018-02-15.bib'
+    infile = 'ads-2018-07-06.bib'
+
     selectedfile = 'suchyta-papers-selected-modified.bib'
     additionalfile = 'suchyta-papers-additional-modified.bib'
+    csfile = 'cs.bib'
 
     with open(infile) as f:
-        bib = bibtexparser.load(f)
-    with open(infile) as f:
-        selected = bibtexparser.load(f)
-    with open(infile) as f:
-        additional = bibtexparser.load(f)
+        astrotext = f.read()
+    with open(csfile) as f:
+        cstext = f.read()
+    bibtext = astrotext + "\n" + cstext
+
+    bib = bibtexparser.loads(bibtext)
+    bib = AddMonthNum(bib)
+    bib.entries = sorted(bib.entries, key=itemgetter('year', 'monthnum'), reverse=True)
+    #bib.entries = sorted(bib.entries, key=itemgetter('monthnum'), reverse=True)
+    for i in range(len(bib.entries)):
+        bib.entries[i]['monthnum'] = str(bib.entries[i]['monthnum'])
+
+    selected = copy.deepcopy(bib)
+    additional = copy.deepcopy(bib)
+
 
     spos = 0
     apos = 0
@@ -35,15 +91,18 @@ if __name__=='__main__':
             if me not in authors:
                 last = '%s (including %s)'%(last,ME)
                 select = False
-            if bib.entries[j][u'ID'] in ['2012SPIE.8451E..12H', '2015AJ....150..150F', '2016JPhCS.759a2095K', 'choi2016stream']:
+            if bib.entries[j][u'ID'] in ['2012SPIE.8451E..12H', '2015AJ....150..150F', '2016JPhCS.759a2095K', '2017Natur.551...85A']:
                 select = True
             authors = np.append(authors, last)
 
         bib.entries[j]['author'] = ' and '.join(authors)
         bib.entries[j]['author'] = bib.entries[j]['author'].replace("{Fermi-LAT}, T.", "{Fermi-LAT}")
-        bib.entries[j]['title'] = bib.entries[j]['title'].replace('\ge', '$\ge$')
+        #bib.entries[j]['title'] = bib.entries[j]['title'].replace('\ge', '$\ge$')
+        bib.entries[j]['title'] = bib.entries[j]['title'].replace('$\lt$', '$<$')
         bib.entries[j]['title'] = bib.entries[j]['title'].replace('{\minus}', '$-$')
         bib.entries[j]['title'] = bib.entries[j]['title'].replace('z = 2.7', 'z~=~2.7')
+
+        #bib.entries[j]['title'] = bib.entries[j]['title'].replace('\geq', '$\geq$')
 
         if (u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find('arxiv')!=-1):
             bib.entries[j][u'journal'] = 'arXiv'
@@ -81,8 +140,10 @@ if __name__=='__main__':
     writer.order_entries_by = False
     with open(additionalfile, 'w') as out:
         out.write(writer.write(additional))
+    #print additional.entries
 
     writer = bibtexparser.bwriter.BibTexWriter()
     writer.order_entries_by = False
     with open(selectedfile, 'w') as out:
         out.write(writer.write(selected))
+

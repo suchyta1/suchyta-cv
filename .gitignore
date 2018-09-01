@@ -1,2 +1,4 @@
 build/
 pkg-templates/
+.DS_Store
+*.pyc
