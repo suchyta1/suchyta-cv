@@ -10,7 +10,10 @@ if __name__ == '__main__':
     me = '{Suchyta}, E.'
     ME = 'E. Suchyta'
 
-    infile = 'ads-2018-08-30.bib'
+    #infile = 'ads-2018-08-30.bib'
+    #infile = 'ads-2018-10-26.bib'
+    #infile = 'ads-2018-11-06.bib'
+    infile = 'ads-2018-12-21.bib'
     selectedfile = 'suchyta-papers-FY18-modified.bib'
 
     suchyta = common.SuchytaPubs(files=[infile], use_arxiv=False, num=num, me=me, ME=ME)
@@ -20,9 +23,9 @@ if __name__ == '__main__':
     for j in range(len(bib.entries)):
         select = False
 
-        if ( (bib.entries[j][u'year'] == '2017') and (bib.entries[j]['month'].lower() in ['oct', 'nov', 'dec']) ):
+        if ( (bib.entries[j][u'year'] == '2018') and (bib.entries[j]['month'].lower() in ['oct', 'nov', 'dec']) ):
             select = True
-        elif ( (bib.entries[j][u'year'] == '2018') and (bib.entries[j]['month'].lower() in ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep']) ):
+        elif ( (bib.entries[j][u'year'] == '2019') and (bib.entries[j]['month'].lower() in ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep']) ):
             select = True
 
         if select:

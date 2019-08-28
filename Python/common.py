@@ -53,10 +53,19 @@ class SuchytaPubs(object):
         if (u'booktitle' in bib.entries[j].keys()) and (bib.entries[j][u'booktitle'].lower().find('aps meeting') != -1):
             omit = True
 
+        if (u'booktitle' in bib.entries[j].keys()) and (bib.entries[j][u'booktitle'].lower().find('aps april') != -1):
+            omit = True
+
         if (u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find("the astronomer's telegram") != -1):
             omit = True
 
         if ((u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find('vizier') != -1)):
+            omit = True
+
+        if (u'title' in bib.entries[j].keys()) and (bib.entries[j][u'title'].lower().find("erratum") != -1):
+            omit = True
+
+        if (u'title' in bib.entries[j].keys()) and (bib.entries[j][u'title'].lower().find("embrace the dark side") != -1):
             omit = True
 
         return omit
@@ -91,14 +100,31 @@ class SuchytaPubs(object):
             bib.entries[j]['title'] = bib.entries[j]['title'].replace('{\minus}', '$-$')
             bib.entries[j]['title'] = bib.entries[j]['title'].replace('z = 2.7', 'z~=~2.7')
 
+            comp = re.compile("UV-luminous, star-forming hosts of z")
+            results = comp.search(bib.entries[j]['title'])
+            if results is not None:
+                bib.entries[j]['title'] = "{UV-luminous, star-forming hosts of z$\sim$2 reddened quasars in the Dark Energy Survey}"
+
+            comp = re.compile("Candidate massive galaxies at z")
+            results = comp.search(bib.entries[j]['title'])
+            if results is not None:
+                bib.entries[j]['title'] = "{Candidate massive galaxies at z$\sim$4 in the Dark Energy Survey}"
+
+            try:
+                bib.entries[j]['journal'] = bib.entries[j]['journal'].replace("\\icarus", "Icarus")
+            except:
+                pass
+
             if ((u'journal' in bib.entries[j].keys()) and (bib.entries[j][u'journal'].lower().find('arxiv') != -1)):
                 bib.entries[j][u'journal'] = 'arXiv'
                 bib.entries[j][u'volume'] = bib.entries[j]['eprint']
 
             comp = re.compile('<.+?>')
-            bib.entries[j][u'title'] = comp.sub('',bib.entries[j][u'title']).strip()
+            #bib.entries[j][u'title'] = comp.sub('',bib.entries[j][u'title']).strip()
+
             comp = re.compile('\\\~\{\}')
-            bib.entries[j][u'title'] = comp.sub('$\sim$',bib.entries[j][u'title']).strip()
+            #comp = re.compile('\\\\\~\{\}')
+            #bib.entries[j][u'title'] = comp.sub('$\sim$',bib.entries[j][u'title']).strip()
 
             omit = self.autoselect(bib, j, use_arxiv)
             if omit:
